@@ -15,12 +15,25 @@ pipeline {
         }
 
         stage('TEST') {
-            steps{
-                sh '''
-                    sleep 6
-                    echo "This is a TEST stage"
-                '''
-            }
+             parallel {
+
+                stage('TEST ON LINUX MACHINE') {
+                    steps {
+                        sh '''
+                            sleep 6
+                            echo "This is a TEST on LINUX"
+                            exit 1
+                        '''
+                    }
+                }
+
+                stage('TEST ON WINDOWS MACHINE') {
+                    steps {
+                        sh '''
+                            sleep 6
+                            echo "This is a TEST on WINDOWS"
+                        '''
+                    }
         }
 
         stage('DEPLOY') {
