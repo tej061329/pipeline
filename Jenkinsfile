@@ -15,7 +15,7 @@ pipeline {
         }
 
         stage('TEST') {
-             parallel {
+            parallel {
 
                 stage('TEST ON LINUX MACHINE') {
                     steps {
@@ -34,7 +34,8 @@ pipeline {
                             echo "This is a TEST on WINDOWS"
                         '''
                     }
-        }
+                }
+
 
         stage('DEPLOY') {
             steps{
