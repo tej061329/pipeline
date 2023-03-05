@@ -1,9 +1,5 @@
 pipeline {
     agent any 
-    parameters {
-  booleanParam description: 'true value', name: 'true'
-}
-
     stages{
         stage('BUILD') {
             steps{
